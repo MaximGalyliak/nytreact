@@ -1,0 +1,25 @@
+{
+  "name": "nytreact",
+  "version": "1.0.0",
+  "description": "Coding boot camp homework",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaximGalyliak/nytreact.git"
+  },
+  "keywords": [
+    "react",
+    "express",
+    "node",
+    "material-ui"
+  ],
+  "author": "MG",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaximGalyliak/nytreact/issues"
+  },
+  "homepage": "https://github.com/MaximGalyliak/nytreact#readme"
+}
