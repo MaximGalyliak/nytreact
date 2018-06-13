@@ -4,7 +4,9 @@
   "description": "Coding boot camp homework",
   "main": "server.js",
   "scripts": {
-    "test": "test"
+    "start": "node server.js",
+    "watch": "nodemon server.js",
+    "view": "cd view && yarn start"
   },
   "repository": {
     "type": "git",
@@ -21,5 +23,11 @@
   "bugs": {
     "url": "https://github.com/MaximGalyliak/nytreact/issues"
   },
-  "homepage": "https://github.com/MaximGalyliak/nytreact#readme"
+  "homepage": "https://github.com/MaximGalyliak/nytreact#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.1.5"
+  }
 }
