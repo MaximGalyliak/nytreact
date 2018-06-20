@@ -2,15 +2,16 @@ const router = require("express").Router();
 const request = require("request");
 
 //matches with api/nyt/:term
-router.route("/:term").get((req, res) => {
+router.route("/:term/:start_year?/:end_year?").get((req, res) => {
   request.get(
     {
       url: process.env.NYT_API_URL,
       qs: {
         "api-key": process.env.NYT_API_KEY,
         q: req.params.term,
-        sort: "newest",
-        fl: "headline, web_url, snippet, pub_date",
+        begin_date: req.params.start_year && req.params.start_year,
+        end_date: req.params.end_year && req.params.end_year,
+        fl: "headline, web_url, snippet, pub_date, multimedia",
         page: 0,
       },
     },
@@ -24,5 +25,9 @@ router.route("/:term").get((req, res) => {
       }
     }
   );
+});
+//search within year range
+router.route("/:term//").get((req, res) => {
+  request.get();
 });
 module.exports = router;

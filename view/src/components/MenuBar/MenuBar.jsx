@@ -18,7 +18,7 @@ const MenuBar = () => {
           <Grid item xs={6}>
             <Typography align="right">
               <Button
-                variant="raised"
+                variant="flat"
                 color="secondary"
                 onClick={this.handleClickOpen}
               >

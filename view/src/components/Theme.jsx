@@ -19,7 +19,7 @@ const Theme = createMuiTheme({
   },
   typography: {
     fontFamily: "Open Sans Condensed, sans-serif",
-    fontSize: 18,
+    fontSize: 20,
   },
   overrides: {
     MuiAppBar: {

@@ -11,6 +11,10 @@ const style = {
   Button: {
     marginTop: "0.5em",
   },
+  Paper: {
+    padding: "1em",
+    position: "fixed",
+  },
 };
 
 class Search extends Component {
@@ -19,8 +23,8 @@ class Search extends Component {
     this.state = {
       error: false,
       topic: "",
-      start_year: "",
-      end_year: "",
+      start_date: "",
+      end_date: "",
     };
   }
 
@@ -34,17 +38,21 @@ class Search extends Component {
     if (this.state.topic.length === 0) {
       this.setState({ error: true });
     } else {
-      this.setState({ error: false, topic: "", start_year: "", end_year: "" });
-      //call server to talk to api
+      this.props.getArticles(
+        this.state.topic,
+        this.state.start_date,
+        this.state.end_date
+      );
+      this.setState({ error: false, topic: "", start_date: "", end_date: "" });
     }
   };
   render() {
     return (
-      <Paper elevation={10} style={{ padding: "1em" }}>
+      <Paper elevation={4} style={style.Paper}>
         <Typography
           align="center"
           variant="title"
-          gutterBottom
+          // gutterBottom
           color={this.state.error ? "error" : "default"}
         >
           Search
@@ -58,20 +66,27 @@ class Search extends Component {
           onChange={this.handleChange("topic")}
         />
         <TextField
-          value={this.state.startYear}
-          label="Start Year (optional)"
-          type="number"
+          value={this.state.start_date}
+          label="Start Date (optional)"
+          type="date"
           fullWidth
+          InputLabelProps={{
+            shrink: true,
+          }}
           margin={style.TextField.margin}
-          onChange={this.handleChange("start_year")}
+          onChange={this.handleChange("start_date")}
         />
         <TextField
-          label="End Year (optional)"
+          disabled={this.state.start_date ? false : true}
+          label="End Date (optional)"
           fullWidth
-          type="number"
+          type="date"
+          InputLabelProps={{
+            shrink: true,
+          }}
           margin={style.TextField.margin}
-          value={this.state.endYear}
-          onChange={this.handleChange("end_year")}
+          value={this.state.end_date}
+          onChange={this.handleChange("end_date")}
         />
         <Button
           variant="raised"
