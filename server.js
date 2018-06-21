@@ -5,7 +5,6 @@ const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 //dotenv used for NYT api keys running config early
-require("dotenv").config();
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
