@@ -1,9 +1,8 @@
-const db = require("../models/articles");
+const db = require("../models");
 //methods
 module.exports = {
-  findAll: function(req, res) {
-    return db.Articles.findAll({})
-      .sort({ date: -1 })
+  findAll: (req, res) => {
+    return db.Article.find({})
       .then(data => {
         res.json(data);
       })
@@ -11,18 +10,13 @@ module.exports = {
         console.log(error);
       });
   },
-  findById: function(req, res) {
-    db.Articles.findById({ _id: req.params.id })
+  create: (req, res) => {
+    return db.Article.create(req.body)
       .then(data => res.json(data))
       .catch(err => res.status(422).json(err));
   },
-  create: function(req, res) {
-    db.Articles.create(req.body)
-      .then(data => res.json(data))
-      .catch(err => res.status(422).json(err));
-  },
-  delete: function(req, res) {
-    db.Articles.findById({ _id: req.params.id })
+  delete: (req, res) => {
+    return db.Article.findById({ _id: req.params.id })
       .then(data => data.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));

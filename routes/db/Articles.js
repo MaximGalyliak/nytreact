@@ -8,9 +8,6 @@ router
   .post(articles_controller.create);
 
 // Matches with "/db/articles/:id"
-router
-  .route("/:id")
-  .get(articles_controller.findById)
-  .delete(articles_controller.delete);
+router.route("/:id").delete(articles_controller.delete);
 
 module.exports = router;
